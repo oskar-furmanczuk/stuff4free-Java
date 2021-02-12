@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+	
+<title>Staff4Free</title>
+
+</head>
+<body>
+	
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+	<div class="container bg-white px-5 py-5">
+			
+			<div th:switch="${#authentication.getPrincipal()}">
+				<p th:case="'anonymousUser'">NIE ZALOGOWANY</p>
+				<p th:case="*">ZALOGOWANY</p>
+			</div>
+
+
+
+		<h1>Hello, world!</h1>
+
+		<p>
+			<span
+				th:text="'Today is: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"
+				th:remove="tag"></span>
+		</p>
+		<hr>
+		<a href="/register"> register</a> <br> <a href="/login">
+			login</a>
+
+
+
+		<div id="chang"></div>
+		<button id="but" >Click to run js</button>
+		
+
+		
+<script type="text/javascript" src="/js/locations.js"></script>
+</div>
+
+</body>
+</html>

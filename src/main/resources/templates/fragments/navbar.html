@@ -1,0 +1,124 @@
+<div th:fragment="navbar">
+
+<style type="text/css">
+body{background-color: #EBEBEB;}
+
+.container
+{min-height: 920px;
+
+background-color:white;
+padding-top: 100px;
+padding-right: 50px;
+padding-left: 50px;
+}
+
+
+
+</style>
+
+
+	<!-- MAIN NAVBAR -->
+
+	<nav class="navbar fixed-top navbar-light bg-dark">
+
+
+
+		<div class="navbar-brand col-5 ">
+			<a href="/home"> <img th:src="@{/images/ikona_staff4free.png}"
+				height="50" class="rounded" />
+
+			<a class="btn btn-warning col-5 ml-4 font-weight-bold" href="/advList">
+				Latest giveaways! </a> 
+
+			<!-- button giveaways -->
+
+			<span th:switch="${#authentication.getPrincipal()}"> <span
+				th:case="'anonymousUser'"> <a
+					class="btn btn-outline-warning col-5 ml-2 font-weight-bold"
+					href="/login"> Place your staff (nie zalogowany) </a>
+
+			</span> <span th:case="*"> <a
+					class="btn btn-outline-warning col-5 ml-2 font-weight-bold"
+					href="/newAdv"> Place your staff (zalogow) </a>
+			</span>
+			</span>
+
+
+			<!-- button giveaways -->
+
+
+		</div>
+
+		<!-- last two buttons -->
+		<!-- not logged user -->
+		<div class="col-3">
+		<span th:switch="${#authentication.getPrincipal()}"> <span
+			th:case="'anonymousUser'">
+
+
+					<a href="/login" class="btn btn-primary col-4 px-0 mx-0"> Login </a> <a
+						href="/register" class="btn btn-outline-primary col-4 px-0 mx-0"> Join
+						now </a>
+
+
+		</span> 
+		<!-- not logged user --> 
+		<!-- logged user --> 
+		<span th:case="*">
+
+				
+
+					<a href="/myAccount" class="btn btn-primary col-4 px-0 mx-0">
+						My account </a> <a href="/logout"
+						class="btn btn-outline-primary col-4 px-0 mx-0"> Logout </a>
+
+		<!-- logged user --> 
+		</span>
+		</div>
+		
+		
+
+
+
+
+
+
+		<!-- last two buttons -->
+	</nav>
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- SCRIPTS FROM BOOTSRAP -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+
+
+</div>
+
+
+
+
